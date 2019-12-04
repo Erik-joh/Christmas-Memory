@@ -10,7 +10,10 @@ const cardsData = [
     {color: "gray", backColor: "white", found: false}
 ];
 const gameField = document.querySelector(".gameField");
-const resetButton = document.querySelector('button');
+const resetButton = document.querySelector('.resetButton');
+const easyButton = document.querySelector('.easyButton');
+const normalButton = document.querySelector('.normalButton');
+const hardButton = document.querySelector('.hardButton');
 let isTurnedUp = false;
 let lockClick = false;
 let lastCard;
@@ -18,9 +21,23 @@ let lastCard;
 init();
 
 function init(){
+    easyButton.addEventListener('click',()=>{
+        reset();
+        createCards(randomizeArray(4));
+        start();
+    });
+    normalButton.addEventListener('click',()=>{
+        reset();
+        createCards(randomizeArray(6));
+        start();
+    });
+    hardButton.addEventListener('click',()=>{
+        reset();
+        createCards(randomizeArray(8));
+        start();
+    });
 
-    createCards(randomizeArray());
-    start();
+    resetButton.addEventListener('click', reset);
 
 }
 function start(){
@@ -34,13 +51,11 @@ function start(){
             }
         });
     });
-    resetButton.addEventListener('click', reset);
 
 }
 
 function reset(){
     gameField.innerHTML = '';
-    init();
 }
 function clickCard(card){
     if(!isTurnedUp){
@@ -82,8 +97,8 @@ function checkIfEqual(first,second){
 
 
 
-function createCardsArray(){
-    y = 8;
+function createCardsArray(numberOfPairs){
+    y = numberOfPairs;
     const cardsArray = [];
     for (let i= 0; i < y; i++) {
         cardsArray.push(cardsData[i]);
@@ -91,8 +106,8 @@ function createCardsArray(){
     }
     return cardsArray;
 }
-function randomizeArray() {
-    array = createCardsArray();
+function randomizeArray(numberOfPairs) {
+    array = createCardsArray(numberOfPairs);
     for (let i = array.length -1; i > 0; i--) {
         var x = Math.floor(Math.random() * (i+1));
         var temp = array[x];
