@@ -10,6 +10,7 @@ const cardsData = [
     {color: "gray", backColor: "white", found: false}
 ];
 const gameField = document.querySelector(".gameField");
+const resetButton = document.querySelector('button');
 let isTurnedUp = false;
 let lockClick = false;
 let lastCard;
@@ -23,6 +24,7 @@ function init(){
 
 }
 function start(){
+
     const cardDivs = gameField.querySelectorAll('.flip-card');
     cardDivs.forEach(elem => {
         elem.addEventListener('click',function() {
@@ -32,8 +34,14 @@ function start(){
             }
         });
     });
+    resetButton.addEventListener('click', reset);
+
 }
 
+function reset(){
+    gameField.innerHTML = '';
+    init();
+}
 function clickCard(card){
     if(!isTurnedUp){
         addClick(card);
@@ -92,7 +100,7 @@ function randomizeArray() {
         array[i] = temp;
     }
     return array;
-  }
+}
 
 function createCards(cards){
     cards.forEach(card => {
@@ -100,6 +108,7 @@ function createCards(cards){
         gameField.appendChild(stringToHTML(elem));
     });
 }
+
 function createCard(color,found){
     return `<div class="flip-card" data-key="${color}" data-found="${found}">
     <div class="flip-card-inner">
@@ -111,7 +120,6 @@ function createCard(color,found){
     </div>
     </div>`;
 }
-
 
 function stringToHTML(str){
     const div = document.createElement("div");
