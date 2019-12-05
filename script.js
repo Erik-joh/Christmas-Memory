@@ -16,6 +16,7 @@ const normalButton = document.querySelector('.normalButton');
 const hardButton = document.querySelector('.hardButton');
 let isTurnedUp = false;
 let lockClick = false;
+
 let lastCard;
 
 init();
