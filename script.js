@@ -42,8 +42,8 @@ function init(){
 
 }
 function start(){
-
     const cardDivs = gameField.querySelectorAll('.flip-card');
+
     cardDivs.forEach(elem => {
         elem.addEventListener('click',function() {
             if(lockClick === false){
@@ -129,10 +129,12 @@ function createCard(color,found){
     return `<div class="flip-card" data-key="${color}" data-found="${found}">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <div style="width:100%;height:100%;background-color:white;"></div>
+        <div style="width:100%;height:100%;"></div>
       </div>
-      <div class="flip-card-back" style="background-color:${color};">
+      <div class="flip-card-back" style="background-color:#BF0407;">
       </div>
+    </div>
+    <div class="flip-card-content" style="background-color:${color}">
     </div>
     </div>`;
 }
