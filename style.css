@@ -16,6 +16,10 @@ h1 {
     font-family: cursive;
     font-size: 40px;
 }
+.container{
+    display: flex;
+
+}
 .gameField{
     width: 60vw;
     height: 60vh;
@@ -28,6 +32,11 @@ h1 {
 .difficulty-container{
     display: flex;
     justify-content: center;
+    width: 20vw;
+    flex-direction: column;
+}
+.score-Board {
+    width: 20vw;
 }
 button{
     height: 60px;

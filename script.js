@@ -14,9 +14,10 @@ const resetButton = document.querySelector('.resetButton');
 const easyButton = document.querySelector('.easyButton');
 const normalButton = document.querySelector('.normalButton');
 const hardButton = document.querySelector('.hardButton');
+const pairsTotal = document.querySelector('.total-pairs');
 let isTurnedUp = false;
 let lockClick = false;
-
+let pairs = 0;
 let lastCard;
 
 init();
@@ -25,16 +26,19 @@ function init(){
     easyButton.addEventListener('click',()=>{
         reset();
         createCards(randomizeArray(4));
+        pairsTotal.textContent = '/ 4';
         start();
     });
     normalButton.addEventListener('click',()=>{
         reset();
         createCards(randomizeArray(6));
+        pairsTotal.textContent = '/ 6';
         start();
     });
     hardButton.addEventListener('click',()=>{
         reset();
         createCards(randomizeArray(8));
+        pairsTotal.textContent = '/ 8';
         start();
     });
 
@@ -57,6 +61,9 @@ function start(){
 
 function reset(){
     gameField.innerHTML = '';
+    isTurnedUp = false;
+    lockClick = false;
+    lastCard = '';
 }
 function clickCard(card){
     if(!isTurnedUp){
