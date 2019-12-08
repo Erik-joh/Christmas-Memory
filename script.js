@@ -1,13 +1,13 @@
 
 const cardsData = [
-    {color: "red", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "green", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "blue", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "hotpink", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "yellow", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "orange", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "black", image: "/images/mistletoe.png", backColor: "white", found: false},
-    {color: "gray", image: "/images/mistletoe.png", backColor: "white", found: false}
+    {image: "/images/mistletoe.png", backColor: "white", found: false},
+    {image: "/images/balls.png", backColor: "white", found: false},
+    {image: "/images/giftbox.png", backColor: "white", found: false},
+    {image: "/images/globe.png", backColor: "white", found: false},
+    {image: "/images/hat.png", backColor: "white", found: false},
+    {image: "/images/snowflake.png", backColor: "white", found: false},
+    {image: "/images/snowman.png", backColor: "white", found: false},
+    {image: "/images/tree.png", backColor: "white", found: false}
 ];
 const gameField = document.querySelector(".gameField");
 const resetButton = document.querySelector('.resetButton');
@@ -120,18 +120,18 @@ function randomizeArray(numberOfPairs) {
 
 function createCards(cards){
     cards.forEach(card => {
-        const elem = createCard(card.color,card.image, card.found);
+        const elem = createCard(card.image, card.found);
         gameField.appendChild(stringToHTML(elem));
     });
 }
 
-function createCard(color,image,found){
-    return `<div class="flip-card" data-key="${color}" data-found="${found}">
+function createCard(image,found){
+    return `<div class="flip-card" data-key="${image}" data-found="${found}">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <div style="width:100%;height:100%;"></div>
       </div>
-      <div class="flip-card-back" style="background-color:#BF0407;">
+      <div class="flip-card-back">
       </div>
     </div>
     <div class="flip-card-content" style="background-image:url(${image})">
