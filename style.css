@@ -13,7 +13,8 @@ body{
 }
 h1 {
     color: black;
-    font-size: 50px;
+    font-family: cursive;
+    font-size: 40px;
 }
 .gameField{
     width: 60vw;
@@ -30,17 +31,20 @@ h1 {
 }
 button{
     height: 60px;
-    width: 200px;
-    background-color: transparent;
+    width: 120px;
+    background-color: rgb(100, 0, 0);
     margin: 10px;
-    border: solid 4px orangered;
+    border: solid 4px rgb(0, 41, 0);
+    font-family: cursive;
     font-weight: bold;
-    font-size: 30px;
+    color: black;
+    border-radius: 10px;
+    font-size: 18px;
 
 }
 button:hover{
     transform: scale(1.10);
-    color: black;
+    color: rgb(189, 0, 0);
 }
 .highlight-button{
     color: black;
