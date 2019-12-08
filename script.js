@@ -15,10 +15,14 @@ const easyButton = document.querySelector('.easyButton');
 const normalButton = document.querySelector('.normalButton');
 const hardButton = document.querySelector('.hardButton');
 const pairsTotal = document.querySelector('.total-pairs');
+const pairsDone = document.querySelector('.pairs-done');
+pairsDone.textContent = '0';
 let isTurnedUp = false;
 let lockClick = false;
 let pairs = 0;
 let lastCard;
+let totalClicks = 0;
+
 
 init();
 
@@ -64,6 +68,8 @@ function reset(){
     isTurnedUp = false;
     lockClick = false;
     lastCard = '';
+    pairsDone.textContent = '0';
+    pairs = 0;
 }
 function clickCard(card){
     if(!isTurnedUp){
@@ -75,6 +81,8 @@ function clickCard(card){
         isTurnedUp = false;
         card.dataset.found = true;
         lastCard.dataset.found = true;
+        pairs++;
+        pairsDone.textContent = `${pairs}`;
     }else{
         addClick(card);
         lockClick = true;

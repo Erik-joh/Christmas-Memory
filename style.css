@@ -38,6 +38,10 @@ h1 {
 .score-Board {
     width: 20vw;
 }
+.score-Board span{
+    font-family: cursive;
+    font-size: 25px;
+}
 button{
     height: 60px;
     width: 120px;
