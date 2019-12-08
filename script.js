@@ -127,15 +127,17 @@ function createCards(cards){
 
 function createCard(image,found){
     return `<div class="flip-card" data-key="${image}" data-found="${found}">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <div style="width:100%;height:100%;"></div>
-      </div>
-      <div class="flip-card-back">
-      </div>
-    </div>
-    <div class="flip-card-content" style="background-image:url(${image})">
-    </div>
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div style="width:100%;height:100%;"></div>
+            </div>
+            <div class="flip-card-back">
+            </div>
+        </div>
+        <div class="flip-card-content-outer">
+            <div class="flip-card-content" style="background-image:url(${image})">
+            </div>
+        </div>
     </div>`;
 }
 
