@@ -121,7 +121,7 @@ function reset() {
     lastCard = "";
     pairsDone.textContent = "0";
     pairs = 0;
-    clhardicksDone.textContent = "0";
+    clicksDone.textContent = "0";
     totalClicks = 0;
     gameOver.textContent = "";
 }
