@@ -56,6 +56,8 @@ const hardButton = document.querySelector(".hardButton");
 const pairsTotal = document.querySelector(".total-pairs");
 const pairsDone = document.querySelector(".pairs-done");
 const clicksDone = document.querySelector(".clicks-done");
+const gameOver = document.querySelector(".game-over");
+
 pairsDone.textContent = "0";
 let isTurnedUp = false;
 let lockClick = false;
@@ -100,7 +102,7 @@ function start() {
                 totalClicks++;
                 clicksDone.textContent = `${totalClicks}`;
                 if (checkIfWon(cardDivs)) {
-                    console.log("Game Over!");
+                    gameOver.textContent = `Well done! you finnished in ${totalClicks} clicks!`;
                 }
             }
         });
@@ -116,6 +118,7 @@ function reset() {
     pairs = 0;
     clicksDone.textContent = "0";
     totalClicks = 0;
+    gameOver.textContent = "";
 }
 function clickCard(card) {
     if (!isTurnedUp) {
