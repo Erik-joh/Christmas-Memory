@@ -68,27 +68,32 @@ let totalClicks = 0;
 init();
 
 function init() {
+    //starts game in easy
     easyButton.addEventListener("click", () => {
         reset();
         createCards(randomizeArray(4));
         pairsTotal.textContent = "/ 4";
         start();
     });
+    //starts game in normal
     normalButton.addEventListener("click", () => {
         reset();
         createCards(randomizeArray(6));
         pairsTotal.textContent = "/ 6";
         start();
     });
+    //starts game in hard
     hardButton.addEventListener("click", () => {
         reset();
         createCards(randomizeArray(8));
         pairsTotal.textContent = "/ 8";
         start();
     });
-
+    //resets the board
     resetButton.addEventListener("click", reset);
 }
+//start function which selects all cards and
+//creates eventlistener for each card and calls on clickCard function.
 function start() {
     const cardDivs = gameField.querySelectorAll(".flip-card");
 
@@ -108,7 +113,7 @@ function start() {
         });
     });
 }
-
+//resets the board and all variables needed
 function reset() {
     gameField.innerHTML = "";
     isTurnedUp = false;
@@ -116,10 +121,13 @@ function reset() {
     lastCard = "";
     pairsDone.textContent = "0";
     pairs = 0;
-    clicksDone.textContent = "0";
+    clhardicksDone.textContent = "0";
     totalClicks = 0;
     gameOver.textContent = "";
 }
+
+//takes a card and checks if it is clicked then
+// if it is equal to lastcard clicked otherwise turns it back.
 function clickCard(card) {
     if (!isTurnedUp) {
         card.locked = false;
@@ -145,12 +153,15 @@ function clickCard(card) {
         }, 1000);
     }
 }
+//removes click class from an card
 function removeClick(card) {
     return card.firstElementChild.classList.remove("click");
 }
+//adds click class to an card
 function addClick(card) {
     return card.firstElementChild.classList.add("click");
 }
+//loops throu array and checks i all cards are found
 function checkIfWon(cards) {
     for (let i = 0; i < cards.length - 1; i++) {
         const found = cards[i].dataset.found === "true";
@@ -160,10 +171,11 @@ function checkIfWon(cards) {
     }
     return true;
 }
+//checks if two cards are equal
 function checkIfEqual(first, second) {
     return first === second;
 }
-
+//creates a card array by duplicating each element from the cardData array
 function createCardsArray(numberOfPairs) {
     y = numberOfPairs;
     const cardsArray = [];
@@ -173,6 +185,7 @@ function createCardsArray(numberOfPairs) {
     }
     return cardsArray;
 }
+//randomizes an array
 function randomizeArray(numberOfPairs) {
     array = createCardsArray(numberOfPairs);
     for (let i = array.length - 1; i > 0; i--) {
@@ -183,14 +196,14 @@ function randomizeArray(numberOfPairs) {
     }
     return array;
 }
-
+//loops and appends all cards to gameField
 function createCards(cards) {
     cards.forEach(card => {
         const elem = createCard(card.image, card.found);
         gameField.appendChild(stringToHTML(elem));
     });
 }
-
+//creates a card structure
 function createCard(image, found) {
     return `<div class="flip-card" data-key="${image}" data-found="${found}">
         <div class="flip-card-inner">
@@ -206,7 +219,7 @@ function createCard(image, found) {
         </div>
     </div>`;
 }
-
+//converts a string to html div
 function stringToHTML(str) {
     const div = document.createElement("div");
     div.innerHTML = str;
