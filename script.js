@@ -48,11 +48,11 @@ const cardsData = [
         locked: false
     }
 ];
-const gameField = document.querySelector(".gameField");
-const resetButton = document.querySelector(".resetButton");
-const easyButton = document.querySelector(".easyButton");
-const normalButton = document.querySelector(".normalButton");
-const hardButton = document.querySelector(".hardButton");
+const gameField = document.querySelector(".game-field");
+const resetButton = document.querySelector(".reset-button");
+const easyButton = document.querySelector(".easy-button");
+const normalButton = document.querySelector(".normal-button");
+const hardButton = document.querySelector(".hard-button");
 const pairsTotal = document.querySelector(".total-pairs");
 const pairsDone = document.querySelector(".pairs-done");
 const clicksDone = document.querySelector(".clicks-done");
@@ -195,7 +195,7 @@ function createCard(image, found) {
     return `<div class="flip-card" data-key="${image}" data-found="${found}">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <div style="width:100%;height:100%;"></div>
+                <div></div>
             </div>
             <div class="flip-card-back">
             </div>

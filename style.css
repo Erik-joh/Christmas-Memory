@@ -25,7 +25,7 @@ h1 {
 .container {
     display: flex;
 }
-.gameField {
+.game-field {
     width: 60vw;
     height: 60vh;
     display: flex;
@@ -40,10 +40,10 @@ h1 {
     width: 20vw;
     flex-direction: column;
 }
-.score-Board {
+.score-board {
     width: 20vw;
 }
-.score-Board span {
+.score-board span {
     font-family: cursive;
     font-size: 25px;
 }
