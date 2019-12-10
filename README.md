@@ -22,6 +22,7 @@
 * Henric Björkvall
 
 ## Code Review
+* By Dominic Kersch
 * script.js: L208-L220 - I suggest line breaks at positions in your template literal which make the contents a little easier to read.
 * index.html: L13-L33 - It's recommended to not place sections inside sections and keep them at the same level. Perhaps the outer or inner section(s) could be changed to a different tag type.
 * index.html: L13-L33 - It's recommended to use consistent indentation and spacing to make for easy reading.
