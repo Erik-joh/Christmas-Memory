@@ -208,7 +208,6 @@ function createCard(image, found) {
     return `<div class="flip-card" data-key="${image}" data-found="${found}">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <div></div>
             </div>
             <div class="flip-card-back">
             </div>
